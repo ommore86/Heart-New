@@ -1,0 +1,471 @@
+You are a Senior Machine Learning Engineer, Data Scientist, Medical AI Researcher, and Software Architect.
+
+Your task is to build a production-quality machine learning pipeline for the research project:
+
+"Digital Twin of the Heart: AI-Based Simulation for Predicting Individualized Cardiovascular Drug Response"
+
+==========================================================
+PROJECT OBJECTIVE
+==========================================================
+
+The objective is NOT simply to predict heart disease.
+
+The objective is to create a generalized Heart State Model that learns a patient's cardiovascular condition and produces:
+
+1. Heart Risk Score (0-100)
+2. Heart State Probability
+3. Feature Importance
+4. Latent Heart Representation
+
+This model will later be integrated into a Digital Twin system.
+
+==========================================================
+DATASETS
+==========================================================
+
+Dataset 1 : cardio_train.csv
+
+IMPORTANT:
+Read using
+
+pd.read_csv("cardio_train.csv", sep=";")
+
+Columns:
+
+id
+age
+gender
+height
+weight
+ap_hi
+ap_lo
+cholesterol
+gluc
+smoke
+alco
+active
+cardio
+
+Target:
+
+cardio
+
+
+----------------------------------------------------------
+
+Dataset 2 : framingham.csv
+
+Columns:
+
+male
+age
+education
+currentSmoker
+cigsPerDay
+BPMeds
+prevalentStroke
+prevalentHyp
+diabetes
+totChol
+sysBP
+diaBP
+BMI
+heartRate
+glucose
+TenYearCHD
+
+Target:
+
+TenYearCHD
+
+
+----------------------------------------------------------
+
+Dataset 3 : heart_disease_uci.csv
+
+Columns:
+
+id
+age
+sex
+dataset
+cp
+trestbps
+chol
+fbs
+restecg
+thalch
+exang
+oldpeak
+slope
+ca
+thal
+num
+
+Target:
+
+num
+
+Convert
+
+num > 0 = 1
+
+num == 0 = 0
+
+==========================================================
+PREPROCESSING
+==========================================================
+
+For every dataset:
+
+Print:
+
+shape
+
+head()
+
+describe()
+
+info()
+
+missing values
+
+class distribution
+
+Remove duplicate rows.
+
+Handle missing values:
+
+Numerical:
+Median imputation
+
+Categorical:
+Mode imputation
+
+Remove ID columns.
+
+Remove rows with impossible BP values.
+
+Remove extreme outliers using IQR.
+
+==========================================================
+FEATURE ENGINEERING
+==========================================================
+
+Create common features.
+
+Map:
+
+gender -> sex
+
+male -> sex
+
+ap_hi -> systolic_bp
+
+sysBP -> systolic_bp
+
+trestbps -> systolic_bp
+
+ap_lo -> diastolic_bp
+
+diaBP -> diastolic_bp
+
+totChol -> cholesterol
+
+chol -> cholesterol
+
+gluc -> glucose
+
+currentSmoker -> smoker
+
+smoke -> smoker
+
+active -> physically_active
+
+==========================================================
+CREATE NEW FEATURES
+==========================================================
+
+AgeYears
+
+For cardio dataset:
+
+AgeYears = age / 365
+
+----------------------------------------------------------
+
+BMI
+
+If BMI does not exist:
+
+BMI = weight / ((height/100)^2)
+
+----------------------------------------------------------
+
+PulsePressure
+
+PulsePressure = systolic_bp - diastolic_bp
+
+----------------------------------------------------------
+
+MeanArterialPressure
+
+MAP = (2 * diastolic_bp + systolic_bp) / 3
+
+----------------------------------------------------------
+
+LifestyleScore
+
+Combine:
+
+smoker
+
+alcohol
+
+physical activity
+
+==========================================================
+DO NOT CONCATENATE DATASETS
+==========================================================
+
+Train independent models.
+
+Model A
+
+cardio_train
+
+↓
+
+Heart Risk Predictor
+
+----------------------------------------------------------
+
+Model B
+
+framingham
+
+↓
+
+10-Year Cardiovascular Risk Predictor
+
+----------------------------------------------------------
+
+Model C
+
+heart_disease_uci
+
+↓
+
+Clinical Heart Disease Predictor
+
+==========================================================
+MODELS
+==========================================================
+
+Train:
+
+Logistic Regression
+
+Random Forest
+
+Gradient Boosting
+
+XGBoost
+
+LightGBM
+
+CatBoost
+
+MLPClassifier
+
+==========================================================
+TRAINING
+==========================================================
+
+80/20 split
+
+random_state=42
+
+stratify=y
+
+Perform:
+
+5 Fold Cross Validation
+
+GridSearchCV
+
+Automatic Hyperparameter Optimization
+
+==========================================================
+ENSEMBLE
+==========================================================
+
+Take best model from each dataset.
+
+Create
+
+VotingClassifier
+
+(Stacking preferred)
+
+Output:
+
+Final Heart Risk Score
+
+==========================================================
+OUTPUT
+==========================================================
+
+For a patient:
+
+Return
+
+{
+
+HeartRiskScore: 84.3,
+
+DiseaseProbability: 0.91,
+
+RiskCategory: "High",
+
+TopContributingFactors:
+
+[
+
+"High systolic BP",
+
+"High cholesterol",
+
+"Smoking",
+
+"Low physical activity"
+
+]
+
+}
+
+==========================================================
+EXPLAINABILITY
+==========================================================
+
+Use SHAP.
+
+Generate:
+
+summary plot
+
+waterfall plot
+
+feature importance
+
+dependence plot
+
+==========================================================
+VISUALIZATIONS
+==========================================================
+
+Generate:
+
+Correlation Heatmap
+
+ROC Curve
+
+PR Curve
+
+Confusion Matrix
+
+Feature Importance
+
+Learning Curve
+
+Class Distribution
+
+Missing Value Plot
+
+==========================================================
+SAVE
+==========================================================
+
+models/
+
+cardio_model.pkl
+
+framingham_model.pkl
+
+uci_model.pkl
+
+ensemble_model.pkl
+
+scaler.pkl
+
+feature_columns.pkl
+
+==========================================================
+PROJECT STRUCTURE
+==========================================================
+
+project/
+
+data/
+
+models/
+
+plots/
+
+outputs/
+
+src/
+
+train.py
+
+predict.py
+
+preprocessing.py
+
+feature_engineering.py
+
+evaluate.py
+
+utils.py
+
+requirements.txt
+
+README.md
+
+==========================================================
+CODE QUALITY
+==========================================================
+
+Use Python.
+
+Use:
+
+pandas
+
+numpy
+
+scikit-learn
+
+xgboost
+
+lightgbm
+
+catboost
+
+matplotlib
+
+plotly
+
+shap
+
+joblib
+
+Follow OOP principles.
+
+Include logging.
+
+Include exception handling.
+
+Include comments.
+
+The code should be modular and suitable for later integration with a Heart Digital Twin and Drug Response Simulation system.

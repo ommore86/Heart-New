@@ -1,0 +1,480 @@
+{
+  "dataset": "uci",
+  "best_model": "xgboost",
+  "results": {
+    "logistic_regression": {
+      "best_params": {
+        "classifier__C": 0.1,
+        "classifier__solver": "lbfgs"
+      },
+      "best_cv_roc_auc": 0.9068576388888889,
+      "cv_scores": [
+        0.9114583333333333,
+        0.8914930555555555,
+        0.8980034722222222,
+        0.9266493055555556,
+        0.9066840277777778
+      ],
+      "test_metrics": {
+        "roc_auc": 0.9205555555555555,
+        "average_precision": 0.9316332794686704,
+        "classification_report": {
+          "0": {
+            "precision": 0.8181818181818182,
+            "recall": 0.9,
+            "f1-score": 0.8571428571428571,
+            "support": 60.0
+          },
+          "1": {
+            "precision": 0.8888888888888888,
+            "recall": 0.8,
+            "f1-score": 0.8421052631578947,
+            "support": 60.0
+          },
+          "accuracy": 0.85,
+          "macro avg": {
+            "precision": 0.8535353535353536,
+            "recall": 0.8500000000000001,
+            "f1-score": 0.849624060150376,
+            "support": 120.0
+          },
+          "weighted avg": {
+            "precision": 0.8535353535353535,
+            "recall": 0.85,
+            "f1-score": 0.849624060150376,
+            "support": 120.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            54,
+            6
+          ],
+          [
+            12,
+            48
+          ]
+        ]
+      }
+    },
+    "random_forest": {
+      "best_params": {
+        "classifier__max_depth": 8,
+        "classifier__min_samples_leaf": 1,
+        "classifier__n_estimators": 100
+      },
+      "best_cv_roc_auc": 0.8888020833333334,
+      "cv_scores": [
+        0.890625,
+        0.8875868055555556,
+        0.8832465277777778,
+        0.8871527777777778,
+        0.8953993055555556
+      ],
+      "test_metrics": {
+        "roc_auc": 0.9205555555555556,
+        "average_precision": 0.929983005660642,
+        "classification_report": {
+          "0": {
+            "precision": 0.8166666666666667,
+            "recall": 0.8166666666666667,
+            "f1-score": 0.8166666666666667,
+            "support": 60.0
+          },
+          "1": {
+            "precision": 0.8166666666666667,
+            "recall": 0.8166666666666667,
+            "f1-score": 0.8166666666666667,
+            "support": 60.0
+          },
+          "accuracy": 0.8166666666666667,
+          "macro avg": {
+            "precision": 0.8166666666666667,
+            "recall": 0.8166666666666667,
+            "f1-score": 0.8166666666666667,
+            "support": 120.0
+          },
+          "weighted avg": {
+            "precision": 0.8166666666666667,
+            "recall": 0.8166666666666667,
+            "f1-score": 0.8166666666666667,
+            "support": 120.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            49,
+            11
+          ],
+          [
+            11,
+            49
+          ]
+        ]
+      }
+    },
+    "gradient_boosting": {
+      "best_params": {
+        "classifier__learning_rate": 0.05,
+        "classifier__max_depth": 2,
+        "classifier__n_estimators": 100
+      },
+      "best_cv_roc_auc": 0.8825520833333333,
+      "cv_scores": [
+        0.875217013888889,
+        0.8834635416666666,
+        0.8884548611111112,
+        0.8936631944444444,
+        0.8719618055555556
+      ],
+      "test_metrics": {
+        "roc_auc": 0.9244444444444443,
+        "average_precision": 0.9327750175261481,
+        "classification_report": {
+          "0": {
+            "precision": 0.8095238095238095,
+            "recall": 0.85,
+            "f1-score": 0.8292682926829268,
+            "support": 60.0
+          },
+          "1": {
+            "precision": 0.8421052631578947,
+            "recall": 0.8,
+            "f1-score": 0.8205128205128205,
+            "support": 60.0
+          },
+          "accuracy": 0.825,
+          "macro avg": {
+            "precision": 0.8258145363408521,
+            "recall": 0.825,
+            "f1-score": 0.8248905565978737,
+            "support": 120.0
+          },
+          "weighted avg": {
+            "precision": 0.8258145363408521,
+            "recall": 0.825,
+            "f1-score": 0.8248905565978736,
+            "support": 120.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            51,
+            9
+          ],
+          [
+            12,
+            48
+          ]
+        ]
+      }
+    },
+    "mlp": {
+      "best_params": {
+        "classifier__alpha": 0.001,
+        "classifier__hidden_layer_sizes": [
+          32
+        ]
+      },
+      "best_cv_roc_auc": 0.8450520833333334,
+      "cv_scores": [
+        0.8446180555555556,
+        0.7682291666666666,
+        0.8428819444444444,
+        0.8858506944444444,
+        0.8836805555555556
+      ],
+      "test_metrics": {
+        "roc_auc": 0.7763888888888889,
+        "average_precision": 0.7601101243299342,
+        "classification_report": {
+          "0": {
+            "precision": 0.7049180327868853,
+            "recall": 0.7166666666666667,
+            "f1-score": 0.7107438016528925,
+            "support": 60.0
+          },
+          "1": {
+            "precision": 0.711864406779661,
+            "recall": 0.7,
+            "f1-score": 0.7058823529411765,
+            "support": 60.0
+          },
+          "accuracy": 0.7083333333333334,
+          "macro avg": {
+            "precision": 0.7083912197832731,
+            "recall": 0.7083333333333333,
+            "f1-score": 0.7083130772970345,
+            "support": 120.0
+          },
+          "weighted avg": {
+            "precision": 0.7083912197832731,
+            "recall": 0.7083333333333334,
+            "f1-score": 0.7083130772970345,
+            "support": 120.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            43,
+            17
+          ],
+          [
+            18,
+            42
+          ]
+        ]
+      }
+    },
+    "xgboost": {
+      "best_params": {
+        "classifier__learning_rate": 0.05,
+        "classifier__max_depth": 3,
+        "classifier__n_estimators": 100
+      },
+      "best_cv_roc_auc": 0.8831597222222222,
+      "cv_scores": [
+        0.8884548611111112,
+        0.8741319444444444,
+        0.88671875,
+        0.8880208333333334,
+        0.8784722222222222
+      ],
+      "test_metrics": {
+        "roc_auc": 0.9263888888888888,
+        "average_precision": 0.9395326750277199,
+        "classification_report": {
+          "0": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.8333333333333334,
+            "support": 60.0
+          },
+          "1": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.8333333333333334,
+            "support": 60.0
+          },
+          "accuracy": 0.8333333333333334,
+          "macro avg": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.8333333333333334,
+            "support": 120.0
+          },
+          "weighted avg": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.8333333333333334,
+            "support": 120.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            50,
+            10
+          ],
+          [
+            10,
+            50
+          ]
+        ]
+      }
+    },
+    "lightgbm": {
+      "best_params": {
+        "classifier__learning_rate": 0.05,
+        "classifier__n_estimators": 100,
+        "classifier__num_leaves": 31
+      },
+      "best_cv_roc_auc": 0.88125,
+      "cv_scores": [
+        0.8875868055555556,
+        0.8736979166666666,
+        0.8802083333333333,
+        0.8706597222222222,
+        0.8940972222222222
+      ],
+      "test_metrics": {
+        "roc_auc": 0.9156944444444445,
+        "average_precision": 0.9323129126467667,
+        "classification_report": {
+          "0": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.8333333333333334,
+            "support": 60.0
+          },
+          "1": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.8333333333333334,
+            "support": 60.0
+          },
+          "accuracy": 0.8333333333333334,
+          "macro avg": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.8333333333333334,
+            "support": 120.0
+          },
+          "weighted avg": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.8333333333333334,
+            "support": 120.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            50,
+            10
+          ],
+          [
+            10,
+            50
+          ]
+        ]
+      }
+    },
+    "catboost": {
+      "best_params": {
+        "classifier__depth": 6,
+        "classifier__iterations": 100,
+        "classifier__learning_rate": 0.05
+      },
+      "best_cv_roc_auc": 0.8964409722222222,
+      "cv_scores": [
+        0.9040798611111112,
+        0.8940972222222222,
+        0.8984375000000001,
+        0.8988715277777778,
+        0.88671875
+      ],
+      "test_metrics": {
+        "roc_auc": 0.9211111111111111,
+        "average_precision": 0.9315705389429813,
+        "classification_report": {
+          "0": {
+            "precision": 0.85,
+            "recall": 0.85,
+            "f1-score": 0.85,
+            "support": 60.0
+          },
+          "1": {
+            "precision": 0.85,
+            "recall": 0.85,
+            "f1-score": 0.85,
+            "support": 60.0
+          },
+          "accuracy": 0.85,
+          "macro avg": {
+            "precision": 0.85,
+            "recall": 0.85,
+            "f1-score": 0.85,
+            "support": 120.0
+          },
+          "weighted avg": {
+            "precision": 0.85,
+            "recall": 0.85,
+            "f1-score": 0.85,
+            "support": 120.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            51,
+            9
+          ],
+          [
+            9,
+            51
+          ]
+        ]
+      }
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "cat__cp_asymptomatic",
+      "importance": 0.24199353158473969
+    },
+    {
+      "feature": "num__exang",
+      "importance": 0.10386033356189728
+    },
+    {
+      "feature": "cat__dataset_VA Long Beach",
+      "importance": 0.07679761946201324
+    },
+    {
+      "feature": "cat__thal_normal",
+      "importance": 0.051041536033153534
+    },
+    {
+      "feature": "num__fbs",
+      "importance": 0.05099209025502205
+    },
+    {
+      "feature": "num__oldpeak",
+      "importance": 0.04451843723654747
+    },
+    {
+      "feature": "num__sex",
+      "importance": 0.040817126631736755
+    },
+    {
+      "feature": "num__age",
+      "importance": 0.040787335485219955
+    },
+    {
+      "feature": "cat__dataset_Cleveland",
+      "importance": 0.040627624839544296
+    },
+    {
+      "feature": "cat__cp_atypical angina",
+      "importance": 0.037161510437726974
+    },
+    {
+      "feature": "num__ca",
+      "importance": 0.03447289392352104
+    },
+    {
+      "feature": "cat__thal_reversable defect",
+      "importance": 0.030919983983039856
+    },
+    {
+      "feature": "num__thalch",
+      "importance": 0.027105605229735374
+    },
+    {
+      "feature": "cat__slope_upsloping",
+      "importance": 0.02565816603600979
+    },
+    {
+      "feature": "cat__cp_typical angina",
+      "importance": 0.024815592914819717
+    },
+    {
+      "feature": "num__systolic_bp",
+      "importance": 0.021024266257882118
+    },
+    {
+      "feature": "num__cholesterol",
+      "importance": 0.020900776609778404
+    },
+    {
+      "feature": "cat__slope_flat",
+      "importance": 0.020881395787000656
+    },
+    {
+      "feature": "cat__restecg_st-t abnormality",
+      "importance": 0.019399508833885193
+    },
+    {
+      "feature": "cat__cp_non-anginal",
+      "importance": 0.015994396060705185
+    }
+  ]
+}
