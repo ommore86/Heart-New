@@ -86,14 +86,18 @@ The `HeartRiskScore` (0–100) is derived from the mean ensemble probability:
 # CORS — allow all origins in development, restrict in production
 # ---------------------------------------------------------------------------
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # Tighten this in production
+    allow_origins=[
+        "https://heart-cg962xo0k-om-more.vercel.app",  # Your Vercel URL
+        "http://localhost:5173"                       # Local development
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # ---------------------------------------------------------------------------
 # Routers
