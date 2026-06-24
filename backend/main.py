@@ -91,8 +91,9 @@ from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://heart-cg962xo0k-om-more.vercel.app",  # Your Vercel URL
-        "http://localhost:5173"                       # Local development
+        "https://heart-new-beta.vercel.app",                 # Your main production URL
+        "https://heart-new-git-main-om-more.vercel.app",      # Git branch URL
+        "http://localhost:5173"                               # Local development
     ],
     allow_credentials=True,
     allow_methods=["*"],
