@@ -82,19 +82,14 @@ The `HeartRiskScore` (0–100) is derived from the mean ensemble probability:
 )
 
 
-# ---------------------------------------------------------------------------
-# CORS — allow all origins in development, restrict in production
-# ---------------------------------------------------------------------------
-
+# --------------------------------------------------------------------------- #
+# CORS — allow all origins to fix hosting network blocks
+# --------------------------------------------------------------------------- #
 from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://heart-new-beta.vercel.app",                 # Your main production URL
-        "https://heart-new-git-main-om-more.vercel.app",      # Git branch URL
-        "http://localhost:5173"                               # Local development
-    ],
+    allow_origins=["*"],  # Allows any frontend domain to securely connect
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
