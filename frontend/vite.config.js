@@ -1,7 +1,16 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/react-swc'
+import path from 'path'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  root: '.', // Explicitly tells Vite to use the frontend folder as root
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+  build: {
+    outDir: 'dist', // Ensures the output goes exactly where Vercel expects it
+  },
 })
