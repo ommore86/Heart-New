@@ -1,16 +1,21 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/react-swc'
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+// Recreate __dirname for ES Modules
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default defineConfig({
   plugins: [react()],
-  root: '.', // Explicitly tells Vite to use the frontend folder as root
+  root: '.', 
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
   build: {
-    outDir: 'dist', // Ensures the output goes exactly where Vercel expects it
+    outDir: 'dist', 
   },
 })
