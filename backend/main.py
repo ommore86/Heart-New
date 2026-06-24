@@ -108,7 +108,7 @@ app.include_router(simulate_router)
 # Root redirect to docs
 # ---------------------------------------------------------------------------
 
-@app.get("/", methods=["GET", "HEAD"], include_in_schema=False)
+@app.get("/", include_in_schema=False)
 async def root() -> JSONResponse:
     return JSONResponse(
         content={
